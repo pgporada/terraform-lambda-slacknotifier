@@ -37,4 +37,5 @@ resource "aws_lambda_function" "slacknotificationsforelasticbeanstalk" {
   function_name = "elasticbeanstalk_slacknotifications"
   role = "${aws_iam_role.iam_slacknotifications_for_elasticbeanstalk.arn}"
   handler = "elasticbeanstalk_slacknotifications.handler"
+  runtime = "nodejs4.3"
 }
