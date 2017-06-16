@@ -34,7 +34,8 @@ resource "aws_s3_bucket_object" "object" {
 resource "aws_lambda_function" "slacknotificationsforelasticbeanstalk" {
 	s3_bucket = "${aws_s3_bucket_object.object.bucket}"
 	s3_key = "${aws_s3_bucket_object.object.key}"
-    function_name = "elasticbeanstalk_slacknotifications"
-    role = "${aws_iam_role.iam_slacknotifications_for_elasticbeanstalk.arn}"
-    handler = "elasticbeanstalk_slacknotifications.handler"
+  function_name = "elasticbeanstalk_slacknotifications"
+  role = "${aws_iam_role.iam_slacknotifications_for_elasticbeanstalk.arn}"
+  handler = "elasticbeanstalk_slacknotifications.handler"
+  runtime = "nodejs4.3"
 }
